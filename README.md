@@ -14,5 +14,5 @@ Bubbles was a personal project of mine during my gap year between high school an
 ## Files
 |                |Use                        |Implementation                         |
 |----------------|-------------------------------|-----------------------------|
-|`bubblesPumps.ino`|Controls large-pumps and perlistic-pumps via relays|Always searching from a serial write from the mother arduino running `bubblesMotors.ino` telling it when to pump and for how long|
-|`bubblesMotors.ino`|Controls position of cup along belt.            |Controls a stepper motor connected to a stepper belt, must do some testing to find proper optic step places (automate in future)| 
+|`bubblesPumps.ino`|Controls large-pumps and perlistic-pumps via relays in bursts for accurate dosing|Always searching for a serial write from the mother arduino running `bubblesMotors.ino` telling it what pump to pump and how many mL. Accomplishes this by doing math based on pump type from experiements I did testing my large and perlistic pumps.|
+|`bubblesMotors.ino`|Controls position of cup along belt (x-axis) as well as dispenser motor (y-axis).            |Controls a stepper motor connected to a stepper belt. Once it reaches an optic dispenses with other stepper motor unless pump optic. If it is pump optic it will send a serial command to child arduino running `bubblesPumps.ino`.|
